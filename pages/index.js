@@ -6,17 +6,13 @@ export default function Home({ data }) {
   // console.log(`categories`, data.categories);
 
   let posts = data.posts;
-  let imgUrls = [];
+  let noLink = false;
 
   return (
     <>
       <div className="container mx-auto">
         <h1>This is homepage</h1>
         {posts.map((post) => {
-          let srcUrl = post.content
-            .match(/src=[\'\"]?(?<url>[^\'\"]*)?[\'\"]/gim)
-            .map((i) => i.replace(/(src=)|\"/g, ""));
-          imgUrls = imgUrls.concat(srcUrl);
           return (
             <article className="article" key={post.id}>
               <h2 className="m-4 font-bold">
@@ -26,21 +22,16 @@ export default function Home({ data }) {
                 src={resizeImage(post.featured_media.url)}
                 alt={post.featured_media.id}
               />
-              <div>{post.content}</div>
-              {/* <div
+
+              <div
                 className="m-4 bg-slate-100 p-4"
-                dangerouslySetInnerHTML={{ __html: removeLink(post.content) }}
-              /> */}
+                dangerouslySetInnerHTML={{
+                  __html: noLink ? removeLink(post.content) : post.content,
+                }}
+              />
             </article>
           );
         })}
-        {/* {imgUrls.map((i) => {
-          i = i.replace(/src=/g, "");
-        })} */}
-        {console.log(imgUrls)}
-        {imgUrls.map((i, index) => (
-          <img key={index} src={i} />
-        ))}
       </div>
     </>
   );
