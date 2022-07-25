@@ -1,8 +1,9 @@
+import Layout from "../../components/Layout";
 import Image from "next/image";
 import { getLocalData, resizeImage, removeLink } from "../../lib/api";
 
 export default function Recipe({ data }) {
-  console.log(`posts`, data.post);
+  console.log(`post`, data.post);
   // console.log(`imageUrls`, data.imageUrls);
   // console.log(`categories`, data.categories);
 
@@ -10,7 +11,7 @@ export default function Recipe({ data }) {
   let noLink = false;
 
   return (
-    <>
+    <Layout>
       <div className="container mx-auto">
         <article className="article" data-id={post.id}>
           <h2 className="m-4 font-bold">
@@ -31,7 +32,7 @@ export default function Recipe({ data }) {
           />
         </article>
       </div>
-    </>
+    </Layout>
   );
 }
 

@@ -102,6 +102,15 @@ export default function Home({ data }) {
         </header>
         <div className="grid xl:my-8 xl:grid-cols-4 xl:gap-6">
           {posts.map((post) => {
+            let cat = categories
+              .filter((cat) => post.categories.includes(cat.id))
+              .map((i) => (
+                <span
+                  className="bg-slate-200 px-1 py-0.5 text-xs"
+                  key={i.name}
+                  dangerouslySetInnerHTML={{ __html: i.name }}
+                />
+              ));
             return (
               <article
                 className="article mx-4 flex flex-col justify-between border bg-white p-4 shadow-lg"
@@ -129,25 +138,18 @@ export default function Home({ data }) {
                       </a>
                     </Link>
                   </h3>
-                  <div className="mb-2">
-                    <span
-                      className="rounded border border-slate-300 py-1 px-1.5 text-sm text-slate-600"
-                      dangerouslySetInnerHTML={{
-                        __html: categories.find(
-                          (cat) => cat.id == post.categories.sort()[0]
-                        ).name,
-                      }}
-                    />
-                  </div>
+                  <div className="mb-2 flex flex-wrap gap-2">{cat}</div>
                 </div>
-                <div className="mt-6 flex items-end justify-between">
+                <div className="my-6 flex items-end justify-between">
                   <div className="mb-0.5 text-xs text-slate-500">
                     Updated on {dayjs(post.date_gmt).format("MMM DD, YYYY")}
                   </div>
 
                   <div className="text-right text-slate-700">
                     <Link href={`/recipe/${post.slug}`}>
-                      <a title={post.title}>Read More</a>
+                      <a className="read-more" title={post.title}>
+                        Read More
+                      </a>
                     </Link>
                   </div>
                 </div>

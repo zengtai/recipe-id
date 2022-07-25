@@ -24,29 +24,30 @@ export default function Navbar({ navItem }) {
               <a className="py-2">Home</a>
             </Link>
           </li>
-          {navItem.map((item) => {
-            let itemTitle = Object.keys(item)[0];
-            let children = Array.from(Object.values(item)[0]);
-            let childrenList = children.map((i) => <li key={i}>{i}</li>);
-            console.log(`children`, children, `type: `, typeof children);
-            return (
-              // <li
-              //   className="bg-slate-100 p-1"
-              //   key={Object.keys(item)[0]}
-              //   dangerouslySetInnerHTML={{
-              //     __html: `
-              //   <span class="navItem-title">${Object.keys(item)[0]}</span>
-              //     <ul>${childrenList}</ul>
-              //   `,
-              //   }}
-              // />
+          {navItem &&
+            navItem.map((item) => {
+              let itemTitle = Object.keys(item)[0];
+              let children = Array.from(Object.values(item)[0]);
+              let childrenList = children.map((i) => <li key={i}>{i}</li>);
+              console.log(`children`, children, `type: `, typeof children);
+              return (
+                // <li
+                //   className="bg-slate-100 p-1"
+                //   key={Object.keys(item)[0]}
+                //   dangerouslySetInnerHTML={{
+                //     __html: `
+                //   <span class="navItem-title">${Object.keys(item)[0]}</span>
+                //     <ul>${childrenList}</ul>
+                //   `,
+                //   }}
+                // />
 
-              <li key={itemTitle} className="py-8">
-                <span className="">{itemTitle}</span>
-                <ul className="hidden">{childrenList}</ul>
-              </li>
-            );
-          })}
+                <li key={itemTitle} className="py-8">
+                  <span className="">{itemTitle}</span>
+                  <ul className="hidden">{childrenList}</ul>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </nav>

@@ -6,10 +6,14 @@
   @apply my-3;
 }
 
-.article a {
+.article h3 a {
   @apply hover:text-orange-600;
 }
 
 .navItem-title {
   @apply my-2;
+}
+
+.read-more {
+  @apply rounded-full bg-orange-600 p-4 text-white/80 xl:hover:text-white;
 }
