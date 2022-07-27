@@ -53,7 +53,7 @@ export default function Navbar({ items }) {
             isMenuOpen ? `flex w-full` : `hidden`
           } flex-col divide-y xl:flex xl:flex-row xl:items-center xl:gap-10 xl:divide-y-0`}
         >
-          <li className="current mx-4">
+          <li className="current mx-4 py-2">
             <Link href={`/`}>
               <a className="py-6 hover:text-orange-600">Home</a>
             </Link>
