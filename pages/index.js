@@ -32,14 +32,14 @@ export default function Home({ data, global }) {
       <div className="container mx-auto">
         <header className="m-4 text-center">
           <h6 className="text-sm font-medium text-orange-600">
-            <span>+100 EASY RECIPES</span>
+            <span>+100 RESEP MUDAH</span>
           </h6>
           <h2 className="my-2 text-4xl font-medium text-slate-700">
-            Latest recipes
+            Resep terbaru
           </h2>
           <h5 className="my-2 text-slate-400">
-            Food trends, easy recipes and healthy meal ideas to help you cook
-            smarter.
+            Tren makanan, resep mudah, dan ide makanan sehat untuk membantu Anda
+            memasak dengan lebih cerdas.
           </h5>
         </header>
         <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
