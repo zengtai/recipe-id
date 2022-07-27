@@ -77,6 +77,7 @@ export default function List({ items, categories }) {
                   width={400}
                   height={400}
                   layout={`responsive`}
+                  lazy
                 />
               </a>
             </Link>
