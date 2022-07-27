@@ -3,27 +3,43 @@ import List from "../../components/List";
 import Link from "next/link";
 import { getLocalData } from "../../lib/api";
 
+import Head from "next/head";
+
+import { ADS_SLOT_ID } from "../../lib/constants";
+import Banner from "../../components/Banner";
+
 export default function Category({ data, global }) {
   // console.log(`data`, data);
   return (
-    <Layout items={global.categories}>
-      <div className="container mx-auto">
-        <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
-          <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
-            <Link href={`/`}>Home</Link>
+    <>
+      <Head>
+        <title>{`${data.currentCategory} | Recipe Guru`}</title>
+      </Head>
+      <Layout items={global.categories}>
+        <div className="container mx-auto">
+          <Banner
+            className={`banner rectangle mt-4`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.category}
+            responsive="false"
+          />
+          <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
+            <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
+              <Link href={`/`}>Home</Link>
+            </div>
+            <div className="breadcrumb-link opacity-50">
+              {data.currentCategory}
+            </div>
           </div>
-          <div className="breadcrumb-link opacity-50">
+          <h1 className="my-4 text-center text-4xl font-medium text-slate-700">
             {data.currentCategory}
+          </h1>
+          <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
+            <List items={data.items} categories={data.allCategories} />
           </div>
         </div>
-        <h1 className="my-4 text-center text-4xl font-medium text-slate-700">
-          {data.currentCategory}
-        </h1>
-        <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-          <List items={data.items} categories={data.allCategories} />
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 

@@ -81,6 +81,14 @@ export default function List({ items, categories }) {
                 />
               </a>
             </Link>
+            <div className="mt-3 flex gap-4 text-sm opacity-50">
+              <div className="bg-serving bg-contain bg-no-repeat pl-7">
+                {item.serves}
+              </div>
+              <div className="bg-cooking bg-contain bg-no-repeat pl-7">
+                {item.cooking_time}
+              </div>
+            </div>
             <h3 className="my-4 text-lg font-medium text-slate-700 no-underline">
               <Link href={`/recipe/${item.slug}`}>
                 <a title={item.title}>
@@ -94,10 +102,13 @@ export default function List({ items, categories }) {
               </span>
             </div>
           </div>
-          <div className="my-6 flex items-end justify-end">
+          <div className="my-6 flex items-end justify-between">
             <div className="text-right text-slate-700">
               <Link href={`/recipe/${item.slug}`}>
-                <a className="read-more whitespace-nowrap" title={item.title}>
+                <a
+                  className="read-more block whitespace-nowrap"
+                  title={item.title}
+                >
                   Read More
                 </a>
               </Link>

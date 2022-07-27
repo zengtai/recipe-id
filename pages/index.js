@@ -1,11 +1,14 @@
 import Image from "../components/Image";
 import Link from "next/link";
 import { getLocalData, resizeImage, removeLink } from "../lib/api";
-
+import Banner from "../components/Banner";
 import List from "../components/List";
+
+import { ADS_SLOT_ID } from "../lib/constants";
 
 import { fullNavItems } from "../lib/constants";
 import Layout from "../components/Layout";
+import Head from "next/head";
 
 export default function Home({ data, global }) {
   // console.log(`posts`, data.posts);
@@ -28,26 +31,37 @@ export default function Home({ data, global }) {
   console.log(posts.length);
 
   return (
-    <Layout items={global.categories}>
-      <div className="container mx-auto">
-        <header className="m-4 text-center">
-          <h6 className="text-sm font-medium text-orange-600">
-            <span>+100 RESEP MUDAH</span>
-          </h6>
-          <h2 className="my-2 text-4xl font-medium text-slate-700">
-            Resep terbaru
-          </h2>
-          <h5 className="my-2 text-slate-400">
-            Tren makanan, resep mudah, dan ide makanan sehat untuk membantu Anda
-            memasak dengan lebih cerdas.
-          </h5>
-        </header>
-        <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-          <List items={recipes.slice(0, 10)} type={`recipes`} />
-          <List items={posts} categories={global.categories} type={`posts`} />
+    <>
+      <Head>
+        <title>Recipe Guru</title>
+      </Head>
+      <Layout items={global.categories}>
+        <div className="container mx-auto">
+          <Banner
+            className={`banner rectangle mt-4`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.home}
+            responsive="false"
+          />
+          <header className="m-4 text-center">
+            <h6 className="text-sm font-medium text-orange-600">
+              <span>+100 RESEP MUDAH</span>
+            </h6>
+            <h2 className="my-2 text-4xl font-medium text-slate-700">
+              Resep terbaru
+            </h2>
+            <h5 className="my-2 text-slate-400">
+              Tren makanan, resep mudah, dan ide makanan sehat untuk membantu
+              Anda memasak dengan lebih cerdas.
+            </h5>
+          </header>
+          <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
+            <List items={recipes.slice(0, 10)} type={`recipes`} />
+            <List items={posts} categories={global.categories} type={`posts`} />
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
@@ -79,6 +93,9 @@ export const getStaticProps = async (ctx) => {
       slug: recipe.slug,
       category: recipe.category,
       recipe_image_url: recipe.recipe_image_url,
+      cooking_time: recipe.cooking_time,
+      serves: recipe.serves,
+      difficulty: recipe.difficulty,
     };
     recipes.push(tmp);
   });
