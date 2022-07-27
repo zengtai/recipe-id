@@ -1,35 +1,132 @@
 import Layout from "../../components/Layout";
 import Image from "next/image";
-import { getLocalData, resizeImage, removeLink } from "../../lib/api";
+import Link from "next/link";
+import {
+  getLocalData,
+  resizeImage,
+  removeLink,
+  getCategoryNameById,
+  categoryList,
+} from "../../lib/api";
 
-export default function Recipe({ data }) {
-  console.log(`post`, data.post);
+export default function Recipe({ data, global }) {
+  console.log(`recipe`, data.recipe);
+  console.log(`categoryList`, data.categoryList);
   // console.log(`imageUrls`, data.imageUrls);
   // console.log(`categories`, data.categories);
 
-  let post = data.post;
+  let recipe = data.recipe;
   let noLink = false;
+  let notes = JSON.parse(noLink ? removeLink(recipe.notes) : recipe.notes).map(
+    (note, index) => <p key={index}>{note.notes}</p>
+  );
+  let ingredients = JSON.parse(recipe.ingredients).map((item, index) => (
+    <li className="relative list-inside py-3" key={index}>
+      {item.ingredients}
+    </li>
+  ));
+  let steps = JSON.parse(recipe.step).map((item, index) => (
+    <li
+      className="relative py-10 pl-10 marker:text-3xl marker:text-white before:absolute before:top-5 before:-left-[4.25rem] before:-z-10 before:h-14 before:w-14 before:rounded-tl-2xl before:rounded-br-2xl before:bg-orange-600"
+      key={index}
+    >
+      {item.step}
+    </li>
+  ));
 
   return (
-    <Layout>
+    <Layout items={global.categories}>
       <div className="container mx-auto">
-        <article className="article" data-id={post.id}>
-          <h2 className="m-4 font-bold">
-            <div dangerouslySetInnerHTML={{ __html: post.title }} />
-          </h2>
-          <Image
-            src={resizeImage(post.featured_media.url)}
-            alt={post.featured_media.id}
-            width={120}
-            height={120}
-          />
+        <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
+          <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
+            <Link href={`/`}>Home</Link>
+          </div>
+          <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
+            <Link
+              href={`/category/${recipe.category
+                .toLowerCase()
+                .replace(/(\s)/g, "-")
+                .replace(/-+/g, "-")}`}
+            >
+              <a>{recipe.category}</a>
+            </Link>
+          </div>
+          <div className="breadcrumb-link opacity-50">{recipe.title}</div>
+        </div>
+        <article className="article">
+          <div className="mx-4 border xl:flex xl:flex-row-reverse xl:gap-10">
+            <div className="relative h-auto w-auto bg-black/5 xl:m-4 xl:h-[400px] xl:w-[400px]">
+              <Image
+                src={resizeImage(recipe.recipe_image_url)}
+                alt={recipe.title}
+                width={400}
+                height={400}
+                layout={`responsive`}
+              />
+            </div>
 
-          <div
-            className="m-4 bg-slate-100 p-4"
-            dangerouslySetInnerHTML={{
-              __html: noLink ? removeLink(post.content) : post.content,
-            }}
-          />
+            <div className="recipe-info m-4 grow">
+              <h1 className="my-4 font-serif text-3xl font-bold text-slate-700 xl:m-4 xl:mx-0 xl:mb-8 xl:text-6xl xl:font-medium">
+                <div dangerouslySetInnerHTML={{ __html: recipe.title }} />
+              </h1>
+              <ul className="divide-y border xl:grid xl:h-32 xl:grid-cols-3 xl:divide-y-0 xl:divide-x xl:text-xl">
+                <li className="relative h-20 p-4 after:absolute after:right-3 after:bottom-3 after:h-14 after:w-14 after:bg-ingredients after:bg-contain after:bg-no-repeat after:opacity-10 xl:h-full xl:after:h-24 xl:after:w-24">
+                  <span>{recipe.difficulty}</span>
+                  <span className="bg-cooking"></span>
+                </li>
+                <li className="relative h-20 p-4 after:absolute after:right-3 after:bottom-3 after:h-14 after:w-14 after:bg-cooking after:bg-contain after:bg-no-repeat after:opacity-10 xl:h-full xl:after:h-24 xl:after:w-24">
+                  <span>{recipe.cooking_time}</span>
+                </li>
+                <li className="relative h-20 p-4 after:absolute after:right-3 after:bottom-3 after:h-14 after:w-14 after:bg-serving after:bg-contain after:bg-no-repeat after:opacity-10 xl:h-full xl:after:h-24 xl:after:w-24">
+                  <span>{recipe.serves}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="xl:flex">
+            <div className="recipe-ingredients m-4 basis-1/3 border p-4">
+              <h2 className="relative z-0 mb-3 text-2xl font-bold text-slate-700 after:absolute after:-bottom-1 after:left-0 after:-z-10 after:h-5 after:w-12 after:bg-orange-500/30">
+                Bahan-bahan
+              </h2>
+              <div>
+                <ul className="list-disc divide-y text-sm marker:text-xl marker:text-orange-600">
+                  {ingredients}
+                </ul>
+              </div>
+            </div>
+            <div className="basis-2/3">
+              {notes.length !== 0 && (
+                <>
+                  <div className="m-4 border bg-slate-100 p-4">
+                    <h2 className="relative z-0 mb-4  text-2xl font-bold text-slate-700 after:absolute after:-bottom-1 after:left-0 after:-z-10 after:h-5 after:w-12 after:bg-orange-500/30">
+                      Catatan
+                    </h2>
+                    <div>{notes}</div>
+                  </div>
+                </>
+              )}
+
+              <div className="recipe-steps m-4 border p-4">
+                <h2 className="relative z-0 mb-3 text-2xl font-bold text-slate-700 after:absolute after:-bottom-1 after:left-0 after:-z-10 after:h-5 after:w-12 after:bg-orange-500/30">
+                  Langkah
+                </h2>
+                <div className="xl:p-8">
+                  <ol className="flex flex-col gap-8">
+                    {JSON.parse(recipe.step).map((item, index) => (
+                      <li
+                        className="relative flex rounded-3xl border py-8 pl-24 pr-8 shadow"
+                        key={index}
+                      >
+                        <div className="marker:leading-2 relative -mt-5 list-item list-[decimal-leading-zero] pl-2 marker:text-3xl marker:text-orange-500">
+                          {item.step}
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </Layout>
@@ -37,26 +134,29 @@ export default function Recipe({ data }) {
 }
 
 export const getStaticProps = async (ctx) => {
-  // const categories = await getLocalData(`categories`);
-  const post = await getLocalData(`posts`).then((res) =>
-    res.find((post) => post.slug == ctx.params.slug)
+  const categories = await getLocalData(`categories`);
+  const recipe = await getLocalData(`recipes`).then((res) =>
+    res.find((recipe) => recipe.slug == ctx.params.slug)
   );
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
+
+  let categoryList = categories.map((cat) => recipe.category == cat.name);
 
   return {
     props: {
       data: {
         // categories,
         // posts: posts ? posts : `Nothing`,
-        post,
+        recipe,
+        categoryList,
       },
     },
   };
 };
 
 export const getStaticPaths = async (ctx) => {
-  const slugs = await getLocalData(`posts`).then((res) =>
-    res.map((post) => post.slug)
+  const slugs = await getLocalData(`recipes`).then((res) =>
+    res.map((recipe) => recipe.slug)
   );
 
   return {

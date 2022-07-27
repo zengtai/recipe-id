@@ -4,334 +4,457 @@
       "id": 7343,
       "name": "Apa Bedanya",
       "slug": "apa-bedanya",
-      "count": 64,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 64
     },
-    { "id": 8111, "name": "aqiqah", "slug": "aqiqah", "count": 2, "parent": 0 },
+    {
+      "id": 8111,
+      "name": "aqiqah",
+      "slug": "aqiqah",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 2
+    },
     {
       "id": 6592,
       "name": "Arisan",
       "slug": "arisan",
-      "count": 57,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 57
     },
     {
       "id": 6573,
       "name": "Ayam - Daging",
       "slug": "ayam-daging",
-      "count": 304,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 304
     },
     {
       "id": 6601,
       "name": "Bahan Masak &amp; Makanan",
       "slug": "bahan-masak-makanan",
-      "count": 691,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 691
     },
     {
       "id": 6612,
       "name": "Bahan Unik &amp; Eksotis",
       "slug": "bahan-unik-eksotis",
-      "count": 29,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 29
     },
-    { "id": 480, "name": "Blog", "slug": "blog", "count": 0, "parent": 0 },
+    {
+      "id": 480,
+      "name": "Blog",
+      "slug": "blog",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 0
+    },
     {
       "id": 6765,
       "name": "Buah - Minuman",
       "slug": "buah-minuman",
-      "count": 107,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 107
     },
     {
       "id": 6609,
       "name": "Bumbu Dapur",
       "slug": "bumbu-dapur",
-      "count": 86,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 86
     },
     {
       "id": 8767,
       "name": "Chicken",
       "slug": "chicken",
-      "count": 0,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 0
     },
     {
       "id": 8768,
       "name": "Fast Food",
       "slug": "fast-food",
-      "count": 0,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 0
     },
-    { "id": 8769, "name": "Fish", "slug": "fish", "count": 2, "parent": 0 },
+    {
+      "id": 8769,
+      "name": "Fish",
+      "slug": "fish",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 2
+    },
     {
       "id": 8886,
       "name": "Gulai",
       "slug": "gulai",
-      "count": 0,
-      "parent": 8881
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
     },
     {
       "id": 6589,
       "name": "Idul Adha",
       "slug": "idul-adha",
-      "count": 23,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 23
     },
     {
       "id": 6574,
       "name": "Ikan - Seafood",
       "slug": "ikan-seafood",
-      "count": 230,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 230
     },
-    { "id": 6591, "name": "Imlek", "slug": "imlek", "count": 9, "parent": 0 },
+    {
+      "id": 6591,
+      "name": "Imlek",
+      "slug": "imlek",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 9
+    },
     {
       "id": 8881,
       "name": "Indofood Racik Bumbu Spesial",
       "slug": "indofood-racik-bumbu-spesial",
-      "count": 0,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 0
     },
     {
       "id": 1474,
       "name": "Informasi",
       "slug": "informasi",
-      "count": 105,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 105
     },
     {
       "id": 6587,
       "name": "Istimewa",
       "slug": "istimewa",
-      "count": 17,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 17
     },
     {
       "id": 6580,
       "name": "Jajanan Pasar",
       "slug": "jajanan-pasar",
-      "count": 218,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 218
     },
-    { "id": 8884, "name": "Kare", "slug": "kare", "count": 0, "parent": 8881 },
+    {
+      "id": 8884,
+      "name": "Kare",
+      "slug": "kare",
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
+    },
     {
       "id": 6582,
       "name": "Keripik - Kerupuk",
       "slug": "keripik-kerupuk",
-      "count": 25,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 25
     },
     {
       "id": 6579,
       "name": "Kue - Roti",
       "slug": "kue-roti",
-      "count": 324,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 324
     },
     {
       "id": 6588,
       "name": "Lebaran",
       "slug": "lebaran",
-      "count": 88,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 88
     },
     {
       "id": 6790,
       "name": "Memanggang - Bakar",
       "slug": "memanggang-bakar",
-      "count": 16,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 16
     },
     {
       "id": 6599,
       "name": "Membuat Kue",
       "slug": "membuat-kue",
-      "count": 141,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 141
     },
     {
       "id": 6603,
       "name": "Menanam Sendiri",
       "slug": "menanam-sendiri",
-      "count": 8,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 8
     },
     {
       "id": 6594,
       "name": "Menggoreng",
       "slug": "menggoreng",
-      "count": 91,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 91
     },
     {
       "id": 6789,
       "name": "Mengukus - Tim",
       "slug": "mengukus-tim-2",
-      "count": 11,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 11
     },
     {
       "id": 6595,
       "name": "Menumis",
       "slug": "menumis",
-      "count": 32,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 32
     },
     {
       "id": 6597,
       "name": "Menyemur",
       "slug": "menyemur",
-      "count": 15,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 15
     },
     {
       "id": 6596,
       "name": "Merebus",
       "slug": "merebus",
-      "count": 44,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 44
     },
     {
       "id": 6584,
       "name": "Minuman - Buah",
       "slug": "minuman-buah",
-      "count": 46,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 46
     },
     {
       "id": 6585,
       "name": "Mudah dan Praktis",
       "slug": "mudah-dan-praktis",
-      "count": 62,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 62
     },
     {
       "id": 6586,
       "name": "Murah Meriah",
       "slug": "murah-meriah",
-      "count": 15,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 15
     },
     {
       "id": 6575,
       "name": "Nasi - Mie - Pasta",
       "slug": "nasi-mie-pasta",
-      "count": 184,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 184
     },
-    { "id": 6590, "name": "Natal", "slug": "natal", "count": 19, "parent": 0 },
+    {
+      "id": 6590,
+      "name": "Natal",
+      "slug": "natal",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 19
+    },
     {
       "id": 8883,
       "name": "Opor Ayam",
       "slug": "opor-ayam",
-      "count": 0,
-      "parent": 8881
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
     },
     {
       "id": 6611,
       "name": "Peralatan Dapur",
       "slug": "peralatan-dapur",
-      "count": 147,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 147
     },
     {
       "id": 8063,
       "name": "Pernikahan",
       "slug": "pernikahan",
-      "count": 3,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 3
     },
-    { "id": 8770, "name": "Pizza", "slug": "pizza", "count": 0, "parent": 0 },
+    {
+      "id": 8770,
+      "name": "Pizza",
+      "slug": "pizza",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 0
+    },
     {
       "id": 6581,
       "name": "Puding - Jeli",
       "slug": "puding-jeli",
-      "count": 39,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 39
     },
     {
       "id": 8887,
       "name": "Rawon",
       "slug": "rawon",
-      "count": 0,
-      "parent": 8881
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
     },
     {
       "id": 8882,
       "name": "Rendang",
       "slug": "rendang",
-      "count": 0,
-      "parent": 8881
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
     },
-    { "id": 3467, "name": "Ria", "slug": "ria", "count": 2, "parent": 0 },
-    { "id": 8771, "name": "Salads", "slug": "salads", "count": 1, "parent": 0 },
+    {
+      "id": 3467,
+      "name": "Ria",
+      "slug": "ria",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 2
+    },
+    {
+      "id": 8771,
+      "name": "Salads",
+      "slug": "salads",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 1
+    },
     {
       "id": 6583,
       "name": "Sambal",
       "slug": "sambal",
-      "count": 54,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 54
     },
-    { "id": 6578, "name": "Sayur", "slug": "sayur", "count": 165, "parent": 0 },
+    {
+      "id": 6578,
+      "name": "Sayur",
+      "slug": "sayur",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 165
+    },
     {
       "id": 7553,
       "name": "Serba Serbi",
       "slug": "serba-serbi",
-      "count": 33,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 33
     },
     {
       "id": 6576,
       "name": "Sop - Soto - Bakso",
       "slug": "sop-soto-bakso",
-      "count": 106,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 106
     },
     {
       "id": 8885,
       "name": "Soto Ayam",
       "slug": "soto-ayam",
-      "count": 0,
-      "parent": 8881
+      "parent": 8881,
+      "taxonomy": "category",
+      "count": 0
     },
-    { "id": 8772, "name": "Soups", "slug": "soups", "count": 1, "parent": 0 },
+    {
+      "id": 8772,
+      "name": "Soups",
+      "slug": "soups",
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 1
+    },
     {
       "id": 6577,
       "name": "Tahu - Tempe - Telur",
       "slug": "tahu-tempe-telur",
-      "count": 92,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 92
     },
     {
       "id": 8604,
       "name": "Tips Memasak",
       "slug": "tips-memasak",
-      "count": 5,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 5
     },
     {
       "id": 6614,
       "name": "Tren Masakan",
       "slug": "tren-masakan",
-      "count": 75,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 75
     },
     {
       "id": 6593,
       "name": "Ulang Tahun",
       "slug": "ulang-tahun",
-      "count": 22,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 22
     },
     {
       "id": 1,
       "name": "Uncategorized",
       "slug": "uncategorized",
-      "count": 51,
-      "parent": 0
+      "parent": 0,
+      "taxonomy": "category",
+      "count": 51
     }
   ],
   "total": 57

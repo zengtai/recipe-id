@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# local images
+
+/public/uploads/
+
 # next.js
 /.next/
 /out/

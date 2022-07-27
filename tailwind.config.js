@@ -9,7 +9,13 @@ module.exports = {
       sans: ["Rubik", "sans-serif"],
       serif: ["Playfair Display", "serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        cooking: "url('../public/images/cooking.svg')",
+        ingredients: "url('../public/images/ingredients.svg')",
+        serving: "url('../public/images/serving.svg')",
+      },
+    },
   },
   plugins: [],
 };

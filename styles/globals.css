@@ -17,3 +17,14 @@
 .read-more {
   @apply rounded-full bg-orange-600 p-4 text-white/80 xl:hover:text-white;
 }
+
+.article-content h3 {
+  @apply my-6;
+}
+.article-content h3 strong {
+  @apply text-xl font-medium;
+}
+
+.article-content a {
+  @apply underline underline-offset-1;
+}
