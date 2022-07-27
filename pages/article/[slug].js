@@ -28,9 +28,9 @@ export default function Recipe({ data, global }) {
           <div className="breadcrumb-link opacity-50">{post.title}</div>
         </div>
         <article className="article max-w-5xl" data-id={post.id}>
-          <h2 className="m-4 text-4xl font-medium text-slate-700">
+          <h1 className="m-4 text-4xl font-medium text-slate-700">
             <div dangerouslySetInnerHTML={{ __html: post.title }} />
-          </h2>
+          </h1>
 
           {/* <Image
             src={resizeImage(post.featured_media.url)}

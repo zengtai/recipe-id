@@ -42,7 +42,7 @@ export default function Home({ data, global }) {
             smarter.
           </h5>
         </header>
-        <div className="grid xl:my-8 xl:grid-cols-4 xl:gap-6">
+        <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
           <List items={recipes.slice(0, 10)} type={`recipes`} />
           <List items={posts} categories={global.categories} type={`posts`} />
         </div>

@@ -16,10 +16,10 @@ export default function Category({ data, global }) {
             {data.currentCategory}
           </div>
         </div>
-        <h1 className="text-center text-4xl font-medium text-slate-700">
+        <h1 className="my-4 text-center text-4xl font-medium text-slate-700">
           {data.currentCategory}
         </h1>
-        <div className="grid xl:my-8 xl:grid-cols-4 xl:gap-6">
+        <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
           <List items={data.items} categories={data.allCategories} />
         </div>
       </div>
