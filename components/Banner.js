@@ -23,7 +23,7 @@ const Banner = ({
 
   return auto ? (
     <div
-      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/10 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-white/20 after:content-['ADVERTISEMENT']`}
+      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/5 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-black/20 after:content-['ADVERTISEMENT']`}
     >
       <ins
         className={`adsbygoogle`}
@@ -38,7 +38,7 @@ const Banner = ({
     </div>
   ) : (
     <div
-      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/10 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-white/20 after:content-['ADVERTISEMENT']`}
+      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/5 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-black/20 after:content-['ADVERTISEMENT']`}
     >
       <ins
         className={`adsbygoogle AdContainer`}
