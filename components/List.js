@@ -102,7 +102,7 @@ export default function List({ items, categories }) {
               </span>
             </div>
           </div>
-          <div className="my-6 flex items-end justify-end">
+          <div className="my-3 flex items-end justify-end">
             <div className="text-right text-slate-700">
               <Link href={`/recipe/${item.slug}`}>
                 <a
