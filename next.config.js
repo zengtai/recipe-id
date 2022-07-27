@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: [`i0.wp.com`, `i1.wp.com`],
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'

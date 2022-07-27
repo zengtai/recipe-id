@@ -10,8 +10,8 @@ import {
 } from "../../lib/api";
 
 export default function Recipe({ data, global }) {
-  console.log(`post`, data.post);
-  console.log(`categoryList`, data.categoryList);
+  // console.log(`post`, data.post);
+  // console.log(`categoryList`, data.categoryList);
   // console.log(`imageUrls`, data.imageUrls);
   // console.log(`categories`, data.categories);
 

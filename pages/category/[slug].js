@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getLocalData } from "../../lib/api";
 
 export default function Category({ data, global }) {
-  console.log(`data`, data);
+  // console.log(`data`, data);
   return (
     <Layout items={global.categories}>
       <div className="container mx-auto">

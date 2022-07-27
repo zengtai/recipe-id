@@ -7,7 +7,7 @@ import { CloseIcon, MenuIcon } from "./Icons";
 import { fullNavItems } from "../lib/constants";
 
 export default function Navbar({ items }) {
-  console.log(`nav items`, items);
+  // console.log(`nav items`, items);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -73,7 +73,7 @@ export default function Navbar({ items }) {
                   </Link>
                 </li>
               ));
-              console.log(`children`, children, `type: `, typeof children);
+              // console.log(`children`, children, `type: `, typeof children);
               return (
                 // <li
                 //   className="bg-slate-100 p-1"

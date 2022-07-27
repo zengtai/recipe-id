@@ -8,16 +8,16 @@ import { fullNavItems } from "../lib/constants";
 import Layout from "../components/Layout";
 
 export default function Home({ data, global }) {
-  console.log(`posts`, data.posts);
-  console.log(`global`, global);
-  console.log(`categories`, data.categories);
-
-  console.log(`allCategories`, data.allCategories);
-  console.log(`categoryIds`, data.categoryIds);
-  // console.log(`imageUrls`, data.imageUrls);
+  // console.log(`posts`, data.posts);
+  // console.log(`global`, global);
   // console.log(`categories`, data.categories);
 
-  console.log(`recipes`, data.recipes);
+  // console.log(`allCategories`, data.allCategories);
+  // console.log(`categoryIds`, data.categoryIds);
+  // // console.log(`imageUrls`, data.imageUrls);
+  // // console.log(`categories`, data.categories);
+
+  // console.log(`recipes`, data.recipes);
 
   let posts = data.posts;
   let recipes = data.recipes;
