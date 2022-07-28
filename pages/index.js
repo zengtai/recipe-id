@@ -2,51 +2,15 @@ import { getLocalData } from "../lib/api";
 import Banner from "../components/Banner";
 import List from "../components/List";
 
-import { ADS_SLOT_ID } from "../lib/constants";
+import { ADS_SLOT_ID, IMAGE_BASE } from "../lib/constants";
 
 import Layout from "../components/Layout";
 import Head from "next/head";
 
 export default function Home({ data, global }) {
-  // console.log(`posts`, data.posts);
-  // console.log(`global`, global);
-  // console.log(`categories`, data.categories);
-
-  // console.log(`allCategories`, data.allCategories);
-  // console.log(`categoryIds`, data.categoryIds);
-  // // console.log(`imageUrls`, data.imageUrls);
-  // // console.log(`categories`, data.categories);
-
-  // console.log(`recipes`, data.recipes);
-
-  let posts = data.posts;
   let recipes = data.recipes;
 
   console.log(`recipes total`, recipes.length);
-  // let categories = data.categories;
-
-  // let noLink = false;
-
-  // let images = [];
-  // let domain = `https://i0.wp.com/resepkoki.id/wp-content/`;
-  // let resize = `?resize=400%2C400&ssl=1`;
-
-  // posts.forEach((item) =>
-  //   images.push(
-  //     `${domain}${item.featured_media.url.replace(
-  //       /_(\d+)x(\d+)/g,
-  //       ""
-  //     )}${resize}`
-  //   )
-  // );
-  // recipes.forEach((item) =>
-  //   images.push(
-  //     `${domain}${item.recipe_image_url.replace(/_(\d+)x(\d+)/g, "")}${resize}`
-  //   )
-  // );
-
-  // console.log(images.length);
-  // console.log(images);
 
   return (
     <>
@@ -75,7 +39,7 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={recipes.slice(0, 10)} type={`recipes`} />
+            <List items={recipes} type={`recipes`} />
           </div>
         </div>
       </Layout>
@@ -90,7 +54,9 @@ export const getStaticProps = async (ctx) => {
 
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 
-  const recipesOriginal = await getLocalData(`recipes`);
+  const recipesOriginal = await getLocalData(`recipes`).then((res) =>
+    res.slice(0, 20)
+  );
   recipesOriginal.map((recipe) => {
     let tmp = {
       title: recipe.title,

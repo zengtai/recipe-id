@@ -1,11 +1,11 @@
 import Layout from "../../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
-import { getLocalData, resizeImage, removeLink } from "../../lib/api";
+import { getLocalData, removeLink } from "../../lib/api";
 
 import Banner from "../../components/Banner";
 
-import { ADS_SLOT_ID } from "../../lib/constants";
+import { ADS_SLOT_ID, IMAGE_BASE } from "../../lib/constants";
 import Head from "next/head";
 
 export default function Recipe({ data, global }) {
@@ -15,23 +15,8 @@ export default function Recipe({ data, global }) {
   // console.log(`categories`, data.categories);
 
   let recipe = data.recipe;
+
   let noLink = false;
-  let notes = JSON.parse(noLink ? removeLink(recipe.notes) : recipe.notes).map(
-    (note, index) => <p key={index}>{note.notes}</p>
-  );
-  let ingredients = JSON.parse(recipe.ingredients).map((item, index) => (
-    <li className="relative list-inside py-3" key={index}>
-      {item.ingredients}
-    </li>
-  ));
-  let steps = JSON.parse(recipe.step).map((item, index) => (
-    <li
-      className="relative py-10 pl-10 marker:text-3xl marker:text-white before:absolute before:top-5 before:-left-[4.25rem] before:-z-10 before:h-14 before:w-14 before:rounded-tl-2xl before:rounded-br-2xl before:bg-orange-600"
-      key={index}
-    >
-      {item.step}
-    </li>
-  ));
 
   return (
     <>
@@ -52,10 +37,10 @@ export default function Recipe({ data, global }) {
             </div>
             <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
               <Link
-                href={`/category/${recipe.category
-                  .toLowerCase()
-                  .replace(/(\s)/g, "-")
-                  .replace(/-+/g, "-")}`}
+                href={`/category/${
+                  global.categories.find((item) => item.name == recipe.category)
+                    .slug
+                }`}
               >
                 <a>{recipe.category}</a>
               </Link>
@@ -66,7 +51,7 @@ export default function Recipe({ data, global }) {
             <div className="mx-4 border xl:flex xl:flex-row-reverse xl:gap-10">
               <div className="relative h-auto w-auto bg-black/5 xl:m-4 xl:h-[400px] xl:w-[400px]">
                 <Image
-                  src={resizeImage(recipe.recipe_image_url)}
+                  src={`${IMAGE_BASE}${recipe.recipe_image_url}`}
                   alt={recipe.title}
                   width={400}
                   height={400}
@@ -99,18 +84,28 @@ export default function Recipe({ data, global }) {
                 </h2>
                 <div>
                   <ul className="list-disc divide-y text-sm marker:text-xl marker:text-orange-600">
-                    {ingredients}
+                    {JSON.parse(recipe.ingredients).map((item, index) => (
+                      <li className="relative list-inside py-3" key={index}>
+                        {item.ingredients}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
               <div className="basis-2/3">
-                {notes.length !== 0 && (
+                {recipe.notes.length !== 0 && (
                   <>
                     <div className="m-4 border bg-slate-100 p-4">
                       <h2 className="relative z-0 mb-4  text-2xl font-bold text-slate-700 after:absolute after:-bottom-1 after:left-0 after:-z-10 after:h-5 after:w-12 after:bg-orange-500/30">
                         Catatan
                       </h2>
-                      <div>{notes}</div>
+                      <div>
+                        {JSON.parse(
+                          noLink ? removeLink(recipe.notes) : recipe.notes
+                        ).map((note, index) => (
+                          <p key={index}>{note.notes}</p>
+                        ))}
+                      </div>
                     </div>
                   </>
                 )}

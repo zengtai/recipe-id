@@ -34,7 +34,7 @@
     },
     {
       "id": 6601,
-      "name": "Bahan Masak &amp; Makanan",
+      "name": "Bahan Masak & Makanan",
       "slug": "bahan-masak-makanan",
       "parent": 0,
       "taxonomy": "category",
@@ -42,7 +42,7 @@
     },
     {
       "id": 6612,
-      "name": "Bahan Unik &amp; Eksotis",
+      "name": "Bahan Unik & Eksotis",
       "slug": "bahan-unik-eksotis",
       "parent": 0,
       "taxonomy": "category",

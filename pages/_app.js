@@ -1,5 +1,7 @@
 import App from "next/app";
 
+import Head from "next/head";
+
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -38,6 +40,16 @@ const MyApp = ({ Component, pageProps }) => {
   }, [Router.events]);
   return (
     <>
+      <Head>
+        <meta name="google" content="notranslate" />
+        <link
+          rel="icon"
+          href={`${Router.basePath}/favicon.ico`}
+          sizes="16x16"
+          type="image/x-icon"
+        />
+      </Head>
+
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

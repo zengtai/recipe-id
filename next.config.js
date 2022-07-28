@@ -21,6 +21,11 @@ const nextConfig = {
     }
     return config;
   },
+  generateBuildId: async () => {
+    // You can, for example, get the latest git commit hash here
+    return "20220728"; //
+  },
+  // basePath: "/webs/recipe/public/id",
 };
 
 module.exports = nextConfig;

@@ -68,6 +68,7 @@ export default function Navbar({ items }) {
                     href={`/category/${
                       items.find((cat) => cat.name == i).slug
                     }`}
+                    prefetch={false}
                   >
                     <a className="hover:text-orange-600">{i}</a>
                   </Link>

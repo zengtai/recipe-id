@@ -10,6 +10,8 @@ import Banner from "../../components/Banner";
 
 export default function Category({ data, global }) {
   // console.log(`data`, data);
+  let recipes = data.recipes;
+
   return (
     <>
       <Head>
@@ -35,7 +37,7 @@ export default function Category({ data, global }) {
             {data.currentCategory}
           </h1>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={data.items} categories={data.allCategories} />
+            <List items={recipes} categories={global.categories} />
           </div>
         </div>
       </Layout>
@@ -47,31 +49,34 @@ export const getStaticProps = async (ctx) => {
   // 1. 当前分类名称：通过slug获取
   const allCategories = await getLocalData(`categories`);
 
-  function getCategoryBySlug(slug) {
-    return allCategories.filter((cat) => cat.slug == slug);
-  }
-
   function getCategoryNameBySlug(slug) {
     let category = allCategories.filter((cat) => cat.slug == slug);
     return category[0].name;
   }
 
-  const currentCategory = getCategoryNameBySlug(ctx.params.slug) || null;
   // const currentCategory = getCategoryNameBySlug(ctx.params.slug) || null;
 
   // 2. 当前分类所属菜谱或文章数据：通过slug获取，slug需要转id
-  function getCategoryIdBySlug(slug) {
-    let category = allCategories.find((cat) => cat.slug == slug);
-    return category.id;
-  }
 
-  const recipes = await getLocalData(`recipes`).then((res) =>
+  const recipesOriginal = await getLocalData(`recipes`).then((res) =>
     res.filter(
       (recipe) => recipe.category == getCategoryNameBySlug(ctx.params.slug)
     )
   );
 
-  let items = [].concat(recipes);
+  let recipes = [];
+  recipesOriginal.map((recipe) => {
+    let tmp = {
+      title: recipe.title,
+      slug: recipe.slug,
+      category: recipe.category,
+      recipe_image_url: recipe.recipe_image_url,
+      cooking_time: recipe.cooking_time,
+      serves: recipe.serves,
+      difficulty: recipe.difficulty,
+    };
+    recipes.push(tmp);
+  });
 
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 
@@ -80,19 +85,25 @@ export const getStaticProps = async (ctx) => {
       data: {
         // categories,
         // posts: posts ? posts : `Nothing`,
-        items,
+        recipes,
         // categoryList,
-        currentCategory,
-        allCategories,
+        currentCategory: recipes[0].category,
       },
     },
   };
 };
 
 export const getStaticPaths = async (ctx) => {
-  const slugs = await getLocalData(`categories`).then((res) =>
-    res.map((cat) => cat.slug)
+  const allCategories = await getLocalData(`categories`);
+
+  const recipes = await getLocalData(`recipes`);
+  let categoriesNames = recipes.map((recipe) => recipe.category);
+
+  let categories = allCategories.filter((item) =>
+    categoriesNames.includes(item.name)
   );
+
+  const slugs = categories.map((res) => res.slug);
 
   return {
     paths: slugs.map((slug) => ({

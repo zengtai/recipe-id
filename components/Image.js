@@ -16,6 +16,7 @@ export default function Image({ src, alt, width, height, lazy }) {
   return (
     <picture>
       <img
+        className="bg-black/5"
         width={width ? width : "100%"}
         height={height ? height : "100%"}
         src={src}
