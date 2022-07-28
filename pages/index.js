@@ -1,12 +1,9 @@
-import Image from "../components/Image";
-import Link from "next/link";
-import { getLocalData, resizeImage, removeLink } from "../lib/api";
+import { getLocalData } from "../lib/api";
 import Banner from "../components/Banner";
 import List from "../components/List";
 
 import { ADS_SLOT_ID } from "../lib/constants";
 
-import { fullNavItems } from "../lib/constants";
 import Layout from "../components/Layout";
 import Head from "next/head";
 
@@ -24,11 +21,30 @@ export default function Home({ data, global }) {
 
   let posts = data.posts;
   let recipes = data.recipes;
-  let categories = data.categories;
+  // let categories = data.categories;
 
-  let noLink = false;
+  // let noLink = false;
 
-  console.log(posts.length);
+  // let images = [];
+  // let domain = `https://i0.wp.com/resepkoki.id/wp-content/`;
+  // let resize = `?resize=400%2C400&ssl=1`;
+
+  // posts.forEach((item) =>
+  //   images.push(
+  //     `${domain}${item.featured_media.url.replace(
+  //       /_(\d+)x(\d+)/g,
+  //       ""
+  //     )}${resize}`
+  //   )
+  // );
+  // recipes.forEach((item) =>
+  //   images.push(
+  //     `${domain}${item.recipe_image_url.replace(/_(\d+)x(\d+)/g, "")}${resize}`
+  //   )
+  // );
+
+  // console.log(images.length);
+  // console.log(images);
 
   return (
     <>
@@ -36,6 +52,7 @@ export default function Home({ data, global }) {
         <title>Recipe Guru</title>
       </Head>
       <Layout items={global.categories}>
+        {/* <div className="p-20">{images.join(`\n`)}</div> */}
         <div className="container mx-auto">
           <Banner
             className={`banner rectangle mt-4`}
@@ -56,8 +73,8 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={recipes.slice(0, 10)} type={`recipes`} />
             <List items={posts} categories={global.categories} type={`posts`} />
+            <List items={recipes.slice(0, 10)} type={`recipes`} />
           </div>
         </div>
       </Layout>
@@ -71,9 +88,10 @@ export const getStaticProps = async (ctx) => {
   let posts = [];
   let recipes = [];
 
-  const postsOriginal = await getLocalData(`posts`).then((res) =>
-    res.slice(0, 16)
-  );
+  const postsOriginal = await getLocalData(`posts`);
+  // const postsOriginal = await getLocalData(`posts`).then((res) =>
+  //   res.slice(0, 16)
+  // );
   postsOriginal.map((post) => {
     let tmp = {
       title: post.title,
@@ -106,7 +124,6 @@ export const getStaticProps = async (ctx) => {
         // categories,
         // posts: posts ? posts : `Nothing`,
         posts,
-
         recipes,
       },
     },
