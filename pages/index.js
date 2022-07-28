@@ -75,7 +75,6 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            {/* <List items={posts} categories={global.categories} type={`posts`} /> */}
             <List items={recipes.slice(0, 10)} type={`recipes`} />
           </div>
         </div>
@@ -87,23 +86,7 @@ export default function Home({ data, global }) {
 export const getStaticProps = async (ctx) => {
   // const categories = await getLocalData(`categories`);
 
-  let posts = [];
   let recipes = [];
-
-  const postsOriginal = await getLocalData(`posts`);
-
-  // const postsOriginal = await getLocalData(`posts`).then((res) =>
-  //   res.slice(0, 16)
-  // );
-  postsOriginal.map((post) => {
-    let tmp = {
-      title: post.title,
-      slug: post.slug,
-      categories: post.categories,
-      featured_media: { url: post.featured_media.url },
-    };
-    posts.push(tmp);
-  });
 
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 
@@ -126,7 +109,7 @@ export const getStaticProps = async (ctx) => {
       data: {
         // categories,
         // posts: posts ? posts : `Nothing`,
-        posts,
+
         recipes,
       },
     },

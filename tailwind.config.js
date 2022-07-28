@@ -5,10 +5,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["Rubik", "sans-serif"],
-      serif: ["Playfair Display", "serif"],
-    },
+    // fontFamily: {
+    //   sans: ["Rubik", "sans-serif"],
+    //   serif: ["Playfair Display", "serif"],
+    // },
     extend: {
       backgroundImage: {
         cooking: "url('../public/images/cooking.svg')",

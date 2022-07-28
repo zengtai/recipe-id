@@ -68,29 +68,15 @@ MyApp.getInitialProps = async (appContext) => {
     // 获取全部分类数据
     const allCategories = await getLocalData(`categories`);
 
-    // 获取全部文章
-    const posts = await getLocalData(`posts`);
-
     // 获取全部菜谱
     const recipes = await getLocalData(`recipes`);
-
-    // 提取文章分类id合集
-    let postsCategoriesIds = [].concat(posts.map((item) => item.categories));
 
     // 提取菜谱分类名称合集
     let recipesCategoriesNames = [];
     recipes.map((item) => recipesCategoriesNames.push(item.category));
 
-    // 文章分类id合集去重
-    postsCategoriesIds = [...new Set(postsCategoriesIds)];
-
     // 菜谱分类名称合集去重
     recipesCategoriesNames = [...new Set(recipesCategoriesNames)];
-
-    // 获取文章分类数据
-    let postsCategories = allCategories.filter((cat) =>
-      postsCategoriesIds.includes(cat.id)
-    );
 
     // 获取菜谱分类数据
     let recipesCategories = allCategories.filter((cat) =>
@@ -98,7 +84,7 @@ MyApp.getInitialProps = async (appContext) => {
     );
 
     // 合并文章分类、菜谱分类数据
-    let categories = [].concat(postsCategories, recipesCategories);
+    let categories = [].concat(recipesCategories);
 
     // 总集去重
     categories = [...new Set(categories)];

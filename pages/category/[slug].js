@@ -64,18 +64,14 @@ export const getStaticProps = async (ctx) => {
     let category = allCategories.find((cat) => cat.slug == slug);
     return category.id;
   }
-  const posts = await getLocalData(`posts`).then((res) =>
-    res.filter((post) =>
-      post.categories.includes(getCategoryIdBySlug(ctx.params.slug))
-    )
-  );
+
   const recipes = await getLocalData(`recipes`).then((res) =>
     res.filter(
       (recipe) => recipe.category == getCategoryNameBySlug(ctx.params.slug)
     )
   );
 
-  let items = [].concat(recipes, posts);
+  let items = [].concat(recipes);
 
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 

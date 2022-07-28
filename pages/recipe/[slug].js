@@ -148,7 +148,6 @@ export const getStaticProps = async (ctx) => {
   const recipe = await getLocalData(`recipes`).then((res) =>
     res.find((recipe) => recipe.slug == ctx.params.slug)
   );
-  // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 
   let categoryList = categories.map((cat) => recipe.category == cat.name);
 
