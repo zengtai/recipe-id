@@ -21,6 +21,8 @@ export default function Home({ data, global }) {
 
   let posts = data.posts;
   let recipes = data.recipes;
+
+  console.log(`recipes total`, recipes.length);
   // let categories = data.categories;
 
   // let noLink = false;
@@ -73,7 +75,7 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={posts} categories={global.categories} type={`posts`} />
+            {/* <List items={posts} categories={global.categories} type={`posts`} /> */}
             <List items={recipes.slice(0, 10)} type={`recipes`} />
           </div>
         </div>
@@ -89,6 +91,7 @@ export const getStaticProps = async (ctx) => {
   let recipes = [];
 
   const postsOriginal = await getLocalData(`posts`);
+
   // const postsOriginal = await getLocalData(`posts`).then((res) =>
   //   res.slice(0, 16)
   // );
