@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
+import { useRouter } from "next/router";
+
 import { CloseIcon, MenuIcon } from "./Icons";
 
 import { fullNavItems } from "../lib/constants";
@@ -37,7 +39,7 @@ export default function Navbar({ items }) {
         <Link href={`/`}>
           <a className="m-4 h-10 w-20" title="Home">
             <Image
-              src={`/brand/logo.png`}
+              src={`${useRouter().basePath}/brand/logo.png`}
               height={50}
               width={114}
               layout={`responsive`}
