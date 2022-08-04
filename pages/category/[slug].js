@@ -22,6 +22,7 @@ export default function Category({ data, global }) {
             style={{ display: "block" }}
             slot={ADS_SLOT_ID.category}
             responsive="false"
+            tag={data.currentCategory}
           />
           <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
             <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">

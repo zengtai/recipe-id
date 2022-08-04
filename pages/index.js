@@ -25,29 +25,6 @@ export default function Home({ data, global }) {
   console.log(`recipes total`, recipes.length);
   // let categories = data.categories;
 
-  // let noLink = false;
-
-  // let images = [];
-  // let domain = `https://i0.wp.com/resepkoki.id/wp-content/`;
-  // let resize = `?resize=400%2C400&ssl=1`;
-
-  // posts.forEach((item) =>
-  //   images.push(
-  //     `${domain}${item.featured_media.url.replace(
-  //       /_(\d+)x(\d+)/g,
-  //       ""
-  //     )}${resize}`
-  //   )
-  // );
-  // recipes.forEach((item) =>
-  //   images.push(
-  //     `${domain}${item.recipe_image_url.replace(/_(\d+)x(\d+)/g, "")}${resize}`
-  //   )
-  // );
-
-  // console.log(images.length);
-  // console.log(images);
-
   return (
     <>
       <Head>
@@ -61,6 +38,7 @@ export default function Home({ data, global }) {
             style={{ display: "block" }}
             slot={ADS_SLOT_ID.home}
             responsive="false"
+            tag={`home - pos1`}
           />
           <header className="m-4 text-center">
             <h6 className="text-sm font-medium text-orange-600">

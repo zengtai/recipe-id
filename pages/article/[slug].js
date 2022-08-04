@@ -29,6 +29,7 @@ export default function Recipe({ data, global }) {
             style={{ display: "block" }}
             slot={ADS_SLOT_ID.detail}
             responsive="false"
+            tag={post.title}
           />
           <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
             <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
