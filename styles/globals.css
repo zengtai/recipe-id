@@ -29,6 +29,12 @@
   @apply underline underline-offset-1;
 }
 
+.ad-container {
+  @apply relative w-full z-0 mx-auto flex flex-col justify-start overflow-hidden after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-white/20 after:content-['ADVERTISEMENT']
+}
+.ad-container h6 {
+  @apply text-xs text-center bg-black/10 opacity-50;
+}
 @media (min-width: 300px) {
   .AdContainer {
     width: 300px;
@@ -56,16 +62,18 @@
   }
 }
 @media (min-width: 970px) {
-  .banner_lg {
+  .AdContainer {
     width: 970px;
-    height: 250px;
+    height: 90px;
   }
-  .square {
+  .banner {
+    height: 90px;
+  }
+  .banner_lg {
     height: 250px;
-    width: 250px;
   }
 }
 
 .adsbygoogle {
-  @apply w-full;
+  @apply w-full flex justify-center bg-[#00000008];
 }

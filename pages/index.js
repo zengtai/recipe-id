@@ -2,14 +2,18 @@ import { getLocalData } from "../lib/api";
 import Banner from "../components/Banner";
 import List from "../components/List";
 
-import { ADS_SLOT_ID, IMAGE_BASE } from "../lib/constants";
+import Link from "next/link";
+
+import { ADS_SLOT_ID, fullNavItems } from "../lib/constants";
 
 import Layout from "../components/Layout";
 import Head from "next/head";
 
 export default function Home({ data, global }) {
   let recipes = data.recipes;
-
+  let activeCategories = global.categories.filter((item) =>
+    fullNavItems[0]?.["Resep"].includes(item.name)
+  );
   console.log(`recipes total`, recipes.length);
 
   return (
@@ -21,14 +25,16 @@ export default function Home({ data, global }) {
         {/* <div className="p-20">{images.join(`\n`)}</div> */}
         <div className="container mx-auto">
           <Banner
-            className={`banner rectangle mt-4`}
-            style={{ display: "block" }}
+            className={`mt-4`}
+            style={{ display: "flex", justifyContent: "center" }}
             slot={ADS_SLOT_ID.home}
-            responsive="false"
+            responsive="true"
+            auto
+            tag={`home`}
           />
           <header className="m-4 text-center">
             <h6 className="text-sm font-medium text-orange-600">
-              <span>+100 RESEP MUDAH</span>
+              <span>+1000 RESEP MUDAH</span>
             </h6>
             <h2 className="my-2 text-4xl font-medium text-slate-700">
               Resep terbaru
@@ -39,7 +45,18 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={recipes} type={`recipes`} />
+            <List items={recipes} type={`recipes`} SLOT_ID={ADS_SLOT_ID.home} />
+          </div>
+          <div>
+            <ul className="m-4 flex flex-wrap gap-2">
+              {activeCategories.map((item) => (
+                <li key={item.id}>
+                  <Link href={`/category/${item.slug}`}>
+                    <a className="inline-block border p-2">{item.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Layout>
@@ -54,10 +71,9 @@ export const getStaticProps = async (ctx) => {
 
   // const posts = await getLocalData(`posts`).then((res) => res.slice(0, 10));
 
-  const recipesOriginal = await getLocalData(`recipes`).then((res) =>
-    res.slice(0, 20)
-  );
-  recipesOriginal.map((recipe) => {
+  const recipesOriginal = await getLocalData(`recipes`);
+
+  recipesOriginal.slice(0, 20).map((recipe) => {
     let tmp = {
       title: recipe.title,
       slug: recipe.slug,

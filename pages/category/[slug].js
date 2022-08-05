@@ -19,12 +19,7 @@ export default function Category({ data, global }) {
       </Head>
       <Layout items={global.categories}>
         <div className="container mx-auto">
-          <Banner
-            className={`banner rectangle mt-4`}
-            style={{ display: "block" }}
-            slot={ADS_SLOT_ID.category}
-            responsive="false"
-          />
+          <Banner slot={ADS_SLOT_ID.category} auto tag={data.currentCategory} />
           <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
             <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
               <Link href={`/`}>Home</Link>
@@ -37,7 +32,11 @@ export default function Category({ data, global }) {
             {data.currentCategory}
           </h1>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={recipes} categories={global.categories} />
+            <List
+              items={recipes}
+              categories={global.categories}
+              SLOT_ID={ADS_SLOT_ID.category}
+            />
           </div>
         </div>
       </Layout>

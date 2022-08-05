@@ -11,35 +11,42 @@ const Banner = ({
   responsive,
   layoutKey,
   auto,
+  tag,
 }) => {
   useEffect(() => {
     try {
-      const adsbygoogle = window.adsbygoogle || [];
-      adsbygoogle.push({});
+      let adsbygoogle = window.adsbygoogle || [];
+      if (adsbygoogle.loaded == true) {
+        adsbygoogle.push({});
+        console.log(`${tag} is pushed for ${slot} by adsbygoogle`);
+      } else if (adsbygoogle == undefined) {
+        console.log(`adsbygoogle is undefined`);
+      }
+      console.log(`adsbygoogle`, adsbygoogle);
     } catch (e) {
       console.error(`Adsense Error: `, e);
     }
-  }, []);
+    // console.log(`useEffect works`);
+  }, [tag, slot]);
 
   return auto ? (
-    <div
-      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/5 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-black/20 after:content-['ADVERTISEMENT']`}
-    >
+    <div className={`${className} ad-container`}>
+      <h6>ADVERTISEMENT</h6>
       <ins
         className={`adsbygoogle`}
         style={style}
         data-ad-layout={layout}
-        data-ad-format={format}
+        data-ad-format={`auto`}
         data-ad-client={client}
         data-ad-slot={slot}
         data-ad-layout-key={layoutKey}
-        data-full-width-responsive={responsive}
-      />
+        data-full-width-responsive={`auto`}
+        data-adtest="on"
+      ></ins>
     </div>
   ) : (
-    <div
-      className={`${className} relative z-0 mx-auto mb-2 flex justify-center overflow-hidden bg-black/5 after:absolute after:bottom-0.5 after:left-1/2 after:-z-10 after:-translate-x-1/2 after:text-xs after:text-black/20 after:content-['ADVERTISEMENT']`}
-    >
+    <div className={`${className} ad-container`}>
+      <h6>ADVERTISEMENT</h6>
       <ins
         className={`adsbygoogle AdContainer`}
         style={style}
@@ -49,7 +56,8 @@ const Banner = ({
         data-ad-slot={slot}
         data-ad-layout-key={layoutKey}
         data-full-width-responsive={responsive}
-      />
+        data-adtest="on"
+      ></ins>
     </div>
   );
 };

@@ -37,7 +37,7 @@ export default function Navbar({ items }) {
     <nav className="fixed top-0 z-50 w-full border-b bg-white/90 shadow-lg">
       <div className="container mx-auto flex flex-wrap items-center justify-between text-sm font-medium uppercase text-slate-700 xl:gap-10">
         <Link href={`/`}>
-          <a className="m-4 h-10 w-20" title="Home">
+          <a className="mx-4 h-10 w-20 xl:mx-0" title="Home">
             <Image
               src={`${useRouter().basePath}/brand/logo.png`}
               height={50}

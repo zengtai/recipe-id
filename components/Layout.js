@@ -10,7 +10,7 @@ export default function Layout({ items, children }) {
       </Head> */}
       <div className="flex min-h-screen flex-col">
         <Navbar items={items} />
-        <main className="mt-20 mb-6 grow xl:mt-32">{children}</main>
+        <main className="mt-10 mb-6 grow xl:mt-16">{children}</main>
         <Footer />
       </div>
     </>

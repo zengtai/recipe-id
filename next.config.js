@@ -25,7 +25,7 @@ const nextConfig = {
     // You can, for example, get the latest git commit hash here
     return "20220728"; //
   },
-  // basePath: "/webs/recipe/public/id",
+  basePath: "/webs/recipe/public/id",
   trailingSlash: true,
 };
 

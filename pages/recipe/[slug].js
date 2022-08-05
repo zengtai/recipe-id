@@ -25,12 +25,7 @@ export default function Recipe({ data, global }) {
       </Head>
       <Layout items={global.categories}>
         <div className="container mx-auto">
-          <Banner
-            className={`banner rectangle mt-4`}
-            style={{ display: "block" }}
-            slot={ADS_SLOT_ID.detail}
-            responsive="false"
-          />
+          <Banner slot={ADS_SLOT_ID.detail} auto tag={recipe.title} />
           <div className="breadcrumb m-4 flex gap-6 whitespace-nowrap text-xs xl:text-sm">
             <div className="breadcrumb-link relative after:absolute after:-right-4 after:opacity-50 after:content-['/']">
               <Link href={`/`}>Home</Link>
