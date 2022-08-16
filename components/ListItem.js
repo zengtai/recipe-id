@@ -3,7 +3,7 @@ import Image from "./Image";
 import Banner from "./Banner";
 import { IMAGE_BASE } from "../lib/constants";
 
-export default function ListItem({ item, SLOT_ID, tag, index }) {
+export default function ListItem({ item, SLOT_ID, tag }) {
   return (
     <>
       <article
@@ -78,7 +78,6 @@ export default function ListItem({ item, SLOT_ID, tag, index }) {
           responsive="true"
           auto
           tag={tag}
-          index={index}
         />
       ) : null}
     </>

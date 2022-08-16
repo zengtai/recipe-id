@@ -43,22 +43,7 @@ const Banner = ({
         data-ad-slot={slot}
         data-ad-layout-key={layoutKey}
         data-full-width-responsive={`auto`}
-        data-adtest="on"
-      ></ins>
-    </div>
-  ) : layoutKey ? (
-    <div className={`${className} ad-container ad-${index}`}>
-      <h6>ADVERTISEMENT</h6>
-      <ins
-        className={`adsbygoogle`}
-        style={style}
-        data-ad-layout={layout}
-        data-ad-format={format}
-        data-ad-client={client}
-        data-ad-slot={slot}
-        data-ad-layout-key={layoutKey}
-        data-full-width-responsive={responsive}
-        data-adtest="on"
+        // data-adtest="on"
       ></ins>
     </div>
   ) : (
@@ -73,7 +58,7 @@ const Banner = ({
         data-ad-slot={slot}
         data-ad-layout-key={layoutKey}
         data-full-width-responsive={responsive}
-        data-adtest="on"
+        // data-adtest="on"
       ></ins>
     </div>
   );
