@@ -61,12 +61,22 @@ export default function ListItem({ item, SLOT_ID, tag, index }) {
         </div>
       </article>
       {SLOT_ID ? (
+        // <Banner
+        //   // className={`ad-container`}
+        //   slot={SLOT_ID}
+        //   style={{ display: `block` }}
+        //   layoutKey={`+3u+p1-56-75+1gi`}
+        //   // layoutKey={`-5b+bt-55-75+1gf`}
+        //   layout={`fluid`}
+        //   tag={tag}
+        //   index={index}
+        // />
         <Banner
-          className={`ad-container`}
+          className={`mt-4`}
+          style={{ display: "flex", justifyContent: "center" }}
           slot={SLOT_ID}
-          style={{ display: `block` }}
-          layoutKey={`-5b+bt-55-75+1gf`}
-          layout={`fluid`}
+          responsive="true"
+          auto
           tag={tag}
           index={index}
         />

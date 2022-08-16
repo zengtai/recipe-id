@@ -50,7 +50,7 @@ const Banner = ({
     <div className={`${className} ad-container ad-${index}`}>
       <h6>ADVERTISEMENT</h6>
       <ins
-        className={`adsbygoogle AdContainer h-fit`}
+        className={`adsbygoogle`}
         style={style}
         data-ad-layout={layout}
         data-ad-format={format}
