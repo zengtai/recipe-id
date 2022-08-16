@@ -3,7 +3,7 @@ import Image from "./Image";
 import Banner from "./Banner";
 import { IMAGE_BASE } from "../lib/constants";
 
-export default function ListItem({ item, SLOT_ID, tag }) {
+export default function ListItem({ item, SLOT_ID, tag, index }) {
   return (
     <>
       <article
@@ -62,10 +62,13 @@ export default function ListItem({ item, SLOT_ID, tag }) {
       </article>
       {SLOT_ID ? (
         <Banner
+          className={`ad-container`}
           slot={SLOT_ID}
+          style={{ display: `block` }}
           layoutKey={`-5b+bt-55-75+1gf`}
           layout={`fluid`}
           tag={tag}
+          index={index}
         />
       ) : null}
     </>
