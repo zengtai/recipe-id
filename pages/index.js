@@ -45,7 +45,7 @@ export default function Home({ data, global }) {
             </h5>
           </header>
           <div className="grid gap-4 xl:my-8 xl:grid-cols-4 xl:gap-6">
-            <List items={recipes} type={`recipes`} SLOT_ID={ADS_SLOT_ID.home} />
+            <List items={recipes} type={`recipes`} SLOT_ID={ADS_SLOT_ID.feed} />
           </div>
           <div>
             <ul className="m-4 flex flex-wrap gap-2">

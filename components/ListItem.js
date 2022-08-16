@@ -60,7 +60,14 @@ export default function ListItem({ item, SLOT_ID, tag }) {
           </div>
         </div>
       </article>
-      {SLOT_ID ? <Banner slot={SLOT_ID} auto tag={tag} /> : null}
+      {SLOT_ID ? (
+        <Banner
+          slot={SLOT_ID}
+          layoutKey={`-5b+bt-55-75+1gf`}
+          layout={`fluid`}
+          tag={tag}
+        />
+      ) : null}
     </>
   );
 }
